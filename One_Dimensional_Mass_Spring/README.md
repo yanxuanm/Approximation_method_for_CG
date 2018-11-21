@@ -71,7 +71,7 @@ v_{2}(\tau) = \frac{\tau^{2}}{2}cos(\tau)- \frac{\tau}{2}sin(\tau)
 \end{array}$$
 Finally, solution of this system up to $O(\epsilon^{3})$:
 $$\begin{array}{c}
-v_{2}(\tau) = cos(\tau) + \epsilon(sin(\tau)-\tau cos(\tau)) +\epsilon^{2}(\frac{\tau^{2}}{2}cos(\tau)- \frac{\tau}{2}sin(\tau)) + O(\epsilon^{3})
+v(\tau) = cos(\tau) + \epsilon(sin(\tau)-\tau cos(\tau)) +\epsilon^{2}(\frac{\tau^{2}}{2}cos(\tau)- \frac{\tau}{2}sin(\tau)) + O(\epsilon^{3})
 \end{array}$$
 
 > This markdown contains $\LaTeX$ math. To see evaluated LaTeX code, open `README.html` in browsers 
