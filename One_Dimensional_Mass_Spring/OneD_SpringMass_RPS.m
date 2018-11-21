@@ -23,11 +23,11 @@ v(t) = cos(t/sqrt(m/k))+epsilon*(sin(t/sqrt(m/k))-t*cos(t/sqrt(m/k)))...
 
 fplot(v, [0, 250]);
 
-% This RPS gives a very good approximation when epsilon is much less than
-% 1. The main effect of small damping is to reduce the amplitude of the  
+% This RPS gives a very good approximation when epsilon is much less than1.
+% The main effect of small damping is to reduce the amplitude of the  
 % oscillation exponentially in time. The frequency shift is only important 
 % once eplison^2*t ~ 1, and on that long time the amplitude of the residual
-% oscillation is exponentially small (~exp(-1/2*epsilon)). So we don?t 
+% oscillation is exponentially small (~exp(-1/2*epsilon)). So we don't 
 % worry too much about the frequency shift. However, if time is arbitrarily
 % large, or epsilon is large, RPS will fail. Slowly accumulated error is called
 % secular error.
