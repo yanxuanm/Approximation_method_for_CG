@@ -23,7 +23,7 @@ v(t) = cos(t/sqrt(m/k))+epsilon*(sin(t/sqrt(m/k))-t*cos(t/sqrt(m/k)))...
 
 fplot(v, [0, 250]);
 
-% This RPS gives a very good approximation when epsilon is much less than1.
+% This RPS gives a very good approximation when epsilon is much less than 1.
 % The main effect of small damping is to reduce the amplitude of the  
 % oscillation exponentially in time. The frequency shift is only important 
 % once eplison^2*t ~ 1, and on that long time the amplitude of the residual
