@@ -95,4 +95,4 @@ f = &2e^{-2x}+ 4\epsilon(e^{-x} - e^{-2x})+8\epsilon ^{2}(e^{-x}+e^{-3x}- 2e^{-2
 & 16\epsilon^{3}(e^{-x}-3e^{-2x}+3e^{-3x}- e^{-4x}) + \dots
 \end{array}$$
 
-
+> This markdown contains $\LaTeX$ math. To see evaluated LaTeX code, open `README.html` in browsers 
