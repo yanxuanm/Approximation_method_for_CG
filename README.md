@@ -58,7 +58,7 @@ $$\begin{array}{cccc}
 \epsilon^{3} &: &  f'_{3}(x) +f_{3}(x) -f^{2}_{1}(x) -4e^{-x}f_{2}(x) &= 0
 \end{array}$$
 
-Order $\epsilon$ terms.
+Order $\epsilon^{1}$ terms.
 $$\begin{array}{c}
 f'_{1}(x) +f_{1}(x) = 4e^{-2x} \quad \rightarrow \quad f'_{1}(x) = 4e^{-2x} + c_{1}e^{-x}
 \end{array}$$
@@ -67,7 +67,7 @@ $$\begin{array}{c}
 f_{1}(x) = 4(e^{-x} - e^{-2x})
 \end{array}$$
 
-Order $\epsilon^{3}$ terms.
+Order $\epsilon^{2}$ terms.
 $$\begin{array}{c}
 f'_{2}(x) +f_{2}(x) = 4e^{-2x}f_{1}(x) \quad \rightarrow \quad f'_{2}(x) +f_{2}(x) = 16e^{-x}(e^{-x} - e^{-2x})
 \end{array}$$
@@ -80,7 +80,7 @@ $$\begin{array}{c}
 f_{2}(x) = 8(e^{-x}+e^{-3x}- 2e^{-2x}).
 \end{array}$$
 
-Order $\epsilon^{2}$ terms.
+Order $\epsilon^{3}$ terms.
 $$\begin{array}{c}
 f'_{3}(x) +f_{3}(x) -f^{2}_{1}(x) -4e^{-x}f_{2}(x) &= 0 \quad \rightarrow \quad f'_{3}(x) +f_{3}(x) = 48(e^{-2x} - 2e^{-3x} + e^{-4x})
 \end{array}$$
