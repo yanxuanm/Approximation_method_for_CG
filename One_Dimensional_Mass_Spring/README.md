@@ -29,7 +29,7 @@ After non-dimensionalizing, equation becomes:
 $$\begin{array}{c}
 m\frac{1}{T^{2}}u_{0}\frac{d^{2}v}{d\tau^{2}} + c\frac{1}{T}u_{0}\frac{dv}{d\tau} + ku_{0}v = 0
 \end{array}$$
-Since we are dealing with small damping, which means the inertia term and spring force almost in balance, and in perturbation theory, we first set the small perturbe term to be zero. If the magnitude of these two terms coefficients are equal, we can have $\frac{m}{T^{2}} = k$ and $T = \sqrt{\frac{m}{k}}. 
+Since we are dealing with small damping, which means the inertia term and spring force almost in balance, and in perturbation theory, we first set the small perturbe term to be zero. If the magnitude of these two terms coefficients are equal, we can have $\frac{m}{T^{2}} = k$ and $T = \sqrt{\frac{m}{k}}$. 
 Furthermore, by dividing this equation with coefficient of mass, coefficient of damping term will be: $\frac{c}{\sqrt{mk}} = \gamma$, cleaning up: 
 $$\begin{array}{c}
 \frac{d^{2}v}{d\tau^{2}} + \gamma\frac{dv}{d\tau} + v = 0
