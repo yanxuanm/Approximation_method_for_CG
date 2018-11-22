@@ -74,5 +74,15 @@ $$\begin{array}{c}
 v(\tau) = cos(\tau) + \epsilon(sin(\tau)-\tau cos(\tau)) +\epsilon^{2}(\frac{\tau^{2}}{2}cos(\tau)- \frac{\tau}{2}sin(\tau)) + O(\epsilon^{3})
 \end{array}$$
 
+![](img/exact_vs_RPS.png)
+
+Comparison between the regular perturbation expansion and the exact solution. The two curves are reasonably close at the beginning, but they differ significantly for larger values of t
+
+
+> `OneD_SpringMass_RPS.m` implements the regular perturbation solution and compared with exact-analytical solution given a long time period. You will see that RPS fails when $\epsilon$ is large and on a large time scale. 
+> Q: How to construct a solution valid for longer time scales?
+
+## Method of Multiple scales
+
 > This markdown contains $\LaTeX$ math. To see evaluated LaTeX code, open `README.html` in browsers 
 
