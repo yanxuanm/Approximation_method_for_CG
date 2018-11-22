@@ -132,7 +132,7 @@ Furthermore, by dividing this equation with coefficient of mass, coefficient of 
 \end{array}\]</span>
 For future computational convenience, let <span class="math">\(\gamma = 2\epsilon\)</span>, <span class="math">\(\epsilon = \frac{c}{2\sqrt{mk}} \ll 1\)</span>.
 The leading term of perturbation series has zero damping, and the initial condition is <span class="math">\(v(0) = 1\)</span>, <span class="math">\(\frac{dv(0)}{d\tau} = 0\)</span>, then perturb the system by allowing <span class="math">\(\epsilon\)</span> to be nonzero. Formulate the solution to the new, perturbed system as a series:<br />
-<span class="math">\[\begin{array}{c} v(\tau) = v_{0}(\tau)+ \epsilon v_{1}(\tau) + \epsilon^{2}v_{2}(\tau) + O(\epsilon^{3}) \\
+<span class="math">\[\begin{array}{c} v(\tau) = v_{0}(\tau)+ \epsilon v_{1}(\tau) + \epsilon^{2}v_{2}(\tau) + O(\epsilon^{3})
 \end{array}\]</span>
 where we successively correct the things that we have removed from the problem. Also:
 <span class="math">\[\begin{array}{c}\frac{dv(\tau)}{d\tau} =\frac{dv_{0}(\tau)}{d\tau} + \epsilon \frac{dv_{1}(\tau)}{d\tau} + \epsilon^{2}\frac{dv_{2}(\tau)}{d\tau} \\
@@ -186,9 +186,27 @@ v(\tau) = cos(\tau) + \epsilon(sin(\tau)-\tau cos(\tau)) +\epsilon^{2}(\frac{\ta
 
 <h2 id="methodofmultiplescales">Method of Multiple scales</h2>
 
+<p>Remember that <span class="math">\(\epsilon = \frac{c}{2\sqrt{mk}}\)</span>, <span class="math">\(\tau = \frac{t}{\sqrt{\frac{m}{k}}}\)</span>, there are two physical time scales that we are interested, one is oscillation time scale, another one is decay time scale, corresponde to fast time scale and slow time scale, respectively. First let <span class="math">\(\tau_{1} = \tau\)</span>, <span class="math">\(\tau_{2} = \epsilon\tau\)</span>.</p>
+
+<p>The perturbation series becomes:
+<span class="math">\[\begin{array}{c}
+v(\tau) = \bar{v}_{0}(\tau_{1}, \tau_{2})+ \epsilon \bar{v}_{1}(\tau_{1}, \tau_{2}) + \epsilon^{2}\bar{v}_{2}(\tau_{1}, \tau_{2}) + O(\epsilon^{3})
+\end{array}\]</span></p>
+
+<p>Putting it together, the approximate solution solved by multiple scales:
+<span class="math">\[\begin{array}{c}
+v(\tau) = e^{-\tau_{2}}cos(\tau_{1})(1-\epsilon^{2}(\tau_{2}+\frac{\tau_{2}^{2}}{4})) +\epsilon e^{-\tau_{2}}sin(\tau_{1})(1+\frac{\tau_{2}}{2})
+\end{array}\]</span></p>
+
+<figure>
+<img src="img/exact_vs_MSA.png" alt="" />
+<figcaption></figcaption>
+</figure>
+
 <blockquote>
 <p>This markdown contains <span class="math">\(\LaTeX\)</span> math. To see evaluated LaTeX code, open <code>README.html</code> in browsers</p>
 </blockquote>
+
 
 
 </body>

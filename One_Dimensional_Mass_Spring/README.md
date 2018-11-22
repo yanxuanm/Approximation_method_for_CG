@@ -36,7 +36,7 @@ $$\begin{array}{c}
 \end{array}$$
 For future computational convenience, let $\gamma = 2\epsilon$, $\epsilon = \frac{c}{2\sqrt{mk}} \ll 1$. 
 The leading term of perturbation series has zero damping, and the initial condition is $v(0) = 1$, $\frac{dv(0)}{d\tau} = 0$, then perturb the system by allowing $\epsilon$ to be nonzero. Formulate the solution to the new, perturbed system as a series:  
-$$\begin{array}{c} v(\tau) = v_{0}(\tau)+ \epsilon v_{1}(\tau) + \epsilon^{2}v_{2}(\tau) + O(\epsilon^{3}) \\
+$$\begin{array}{c} v(\tau) = v_{0}(\tau)+ \epsilon v_{1}(\tau) + \epsilon^{2}v_{2}(\tau) + O(\epsilon^{3})
 \end{array}$$
 where we successively correct the things that we have removed from the problem. Also:
 $$\begin{array}{c}\frac{dv(\tau)}{d\tau} =\frac{dv_{0}(\tau)}{d\tau} + \epsilon \frac{dv_{1}(\tau)}{d\tau} + \epsilon^{2}\frac{dv_{2}(\tau)}{d\tau} \\
@@ -86,5 +86,23 @@ $u_{1}$ and $u_{2}$ are secular term, because they are not bounded, we can see t
 
 ## Method of Multiple scales
 
+Remember that $\epsilon = \frac{c}{2\sqrt{mk}}$, $\tau = \frac{t}{\sqrt{\frac{m}{k}}}$, there are two physical time scales that we are interested, one is oscillation time scale, another one is decay time scale, corresponde to fast time scale and slow time scale, respectively. First let $\tau_{1} = \tau$, $\tau_{2} = \epsilon\tau$. 
+
+The perturbation series becomes: 
+$$\begin{array}{c}
+v(\tau) = \bar{v}_{0}(\tau_{1}, \tau_{2})+ \epsilon \bar{v}_{1}(\tau_{1}, \tau_{2}) + \epsilon^{2}\bar{v}_{2}(\tau_{1}, \tau_{2}) + O(\epsilon^{3})
+\end{array}$$
+
+Putting it together, the approximate solution solved by multiple scales:
+$$\begin{array}{c}
+v(\tau) = e^{-\tau_{2}}cos(\tau_{1})(1-\epsilon^{2}(\tau_{2}+\frac{\tau_{2}^{2}}{4})) +\epsilon e^{-\tau_{2}}sin(\tau_{1})(1+\frac{\tau_{2}}{2})
+\end{array}$$
+
+![](img/exact_vs_MSA.png)
+
+
+
 > This markdown contains $\LaTeX$ math. To see evaluated LaTeX code, open `README.html` in browsers 
+
+
 
