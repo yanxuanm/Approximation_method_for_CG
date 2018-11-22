@@ -168,7 +168,23 @@ v_{2}(\tau) = \frac{\tau^{2}}{2}cos(\tau)- \frac{\tau}{2}sin(\tau)
 Finally, solution of this system up to <span class="math">\(O(\epsilon^{3})\)</span>:
 <span class="math">\[\begin{array}{c}
 v(\tau) = cos(\tau) + \epsilon(sin(\tau)-\tau cos(\tau)) +\epsilon^{2}(\frac{\tau^{2}}{2}cos(\tau)- \frac{\tau}{2}sin(\tau)) + O(\epsilon^{3})
-\end{array}\]</span></p>
+\end{array}\]</span>
+<img src="img/exact_vs_RPS.png" alt="" /></p>
+
+<p>Comparison between the regular perturbation expansion and the exact solution. The two curves are reasonably close at the beginning, but they differ significantly for larger values of t.
+<img src="img/u1_vs_u2.png" alt="" /></p>
+
+<p><span class="math">\(u_{1}\)</span> and <span class="math">\(u_{2}\)</span> are secular term, because they are not bounded, we can see that <span class="math">\(u_{1}\)</span> eventually becomes as large as the first term, and <span class="math">\(u_{2}\)</span> grows exponentially.</p>
+
+<blockquote>
+<p><code>OneD_SpringMass_RPS.m</code> implements the regular perturbation solution and compared with exact-analytical solution given a long time period. You will see that RPS fails when <span class="math">\(\epsilon\)</span> is large and on a large time scale.</p>
+</blockquote>
+
+<blockquote>
+<p>Q: How to construct a solution valid for longer time scales?</p>
+</blockquote>
+
+<h2 id="methodofmultiplescales">Method of Multiple scales</h2>
 
 <blockquote>
 <p>This markdown contains <span class="math">\(\LaTeX\)</span> math. To see evaluated LaTeX code, open <code>README.html</code> in browsers</p>

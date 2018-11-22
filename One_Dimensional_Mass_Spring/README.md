@@ -73,13 +73,15 @@ Finally, solution of this system up to $O(\epsilon^{3})$:
 $$\begin{array}{c}
 v(\tau) = cos(\tau) + \epsilon(sin(\tau)-\tau cos(\tau)) +\epsilon^{2}(\frac{\tau^{2}}{2}cos(\tau)- \frac{\tau}{2}sin(\tau)) + O(\epsilon^{3})
 \end{array}$$
-
 ![](img/exact_vs_RPS.png)
 
-Comparison between the regular perturbation expansion and the exact solution. The two curves are reasonably close at the beginning, but they differ significantly for larger values of t
+Comparison between the regular perturbation expansion and the exact solution. The two curves are reasonably close at the beginning, but they differ significantly for larger values of t.
+![](img/u1_vs_u2.png)
 
+$u_{1}$ and $u_{2}$ are secular term, because they are not bounded, we can see that $u_{1}$ eventually becomes as large as the first term, and $u_{2}$ grows exponentially. 
 
 > `OneD_SpringMass_RPS.m` implements the regular perturbation solution and compared with exact-analytical solution given a long time period. You will see that RPS fails when $\epsilon$ is large and on a large time scale. 
+
 > Q: How to construct a solution valid for longer time scales?
 
 ## Method of Multiple scales
