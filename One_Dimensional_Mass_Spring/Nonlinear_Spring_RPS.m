@@ -30,3 +30,13 @@ for i=1:3
  
     pert_term(i) = str2sym(commandOut)
 end
+
+V = odeToVectorField(pert_term(1));
+F = matlabFunction(V,'vars',{'t','Y'});
+sol = ode45(F,[0 4],[1 0]);
+x = linspace(0,4,10);
+y = deval(sol,x,2);
+plot(x,y);
+
+
+
