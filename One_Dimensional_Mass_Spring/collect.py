@@ -1,7 +1,6 @@
 import sys
 
 first_arg = sys.argv[1]
-
 second_arg = sys.argv[2]
 
 def findcorr(eqt=first_arg, sub=second_arg):
