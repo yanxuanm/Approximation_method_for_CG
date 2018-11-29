@@ -28,29 +28,30 @@ for i=1:3
     commandStr = strcat("python collect.py ", equation, E_command(i));
     [status, commandOut] = system(commandStr);
  
-    pert_term(i) = str2sym(commandOut)
+    pert_term(i) = str2sym(commandOut);
 end
 
+% Solve differential equation of first perturbation term
 V = odeToVectorField(pert_term(1));
 F = matlabFunction(V,'vars',{'t','Y'});
-sol = ode45(F,[0 3],[1 0]);
-x = linspace(0,3,20);
+sol = ode45(F,[0 3.2],[1 0]);
+x = linspace(0,3.2,20);
 first_y = deval(sol,x,1);
 first_diffy = deval(sol,x,2);
 plot(x,first_y);
 
 
-% dim_matrix = zeros(size(pert_term, 2), size(sol.y, 2))
-% temp_pert_term = sym(size(dim_matrix))
+% To solve second perturbation term, need to substitute results of first
+% term
 sym replace_y0
 for i = 1:size(first_y, 2)
-    replace_y0(i) = subs(pert_term(2), diff(y0(t), t), first_diffy(i))
+    replace_y0(i) = subs(pert_term(2), diff(y0(t), t), first_diffy(i));
 end
 
 
 sym second_per
 for i = 1:size(replace_y0, 2)
-    second_per(i) = subs(replace_y0(i), y0(t), first_y(i))
+    second_per(i) = subs(replace_y0(i), y0(t), first_y(i));
 end
 
 Y2 = zeros(size(first_y));
@@ -59,8 +60,8 @@ for i = 1:size(second_per, 2)
     
     V2 = odeToVectorField(second_per(i));
     F2 = matlabFunction(V2,'vars',{'t','Y'});
-    sol2 = ode45(F2,[0 3],[1 0]);
-    x = linspace(0,3,20);
+    sol2 = ode45(F2,[0 3.2],[1 0]);
+    x = linspace(0,3.2,20);
     Y2(i, :) = deval(sol2,x,1);
     diff_Y2(i, :) = deval(sol2,x,2);
 
@@ -71,19 +72,21 @@ plot(x,diag(Y2));
 second_y = diag(Y2);
 second_diffy = diag(diff_Y2);
 
+% To solve third perturbation term, need to substitute results of first
+% and second term
 sym replace_y1
 for i = 1:size(first_y, 2)
-    replace_y1(i) = subs(pert_term(3), diff(y1(t), t), second_diffy(i))
+    replace_y1(i) = subs(pert_term(3), diff(y1(t), t), second_diffy(i));
 end
 
 sym replace_y1_y0
 for i = 1:size(first_y, 2)
-    replace_y1_y0(i) = subs(replace_y1(i), y0(t), first_y(i))
+    replace_y1_y0(i) = subs(replace_y1(i), y0(t), first_y(i));
 end
 
 sym third_per
 for i = 1:size(replace_y0, 2)
-    third_per(i) = subs(replace_y1_y0(i), y1(t), second_y(i))
+    third_per(i) = subs(replace_y1_y0(i), y1(t), second_y(i));
 end
 
 Y3 = zeros(size(first_y));
@@ -92,8 +95,8 @@ for i = 1:size(third_per, 2)
     
     V3 = odeToVectorField(third_per(i));
     F3 = matlabFunction(V3,'vars',{'t','Y'});
-    sol3 = ode45(F3,[0 3],[1 0]);
-    x = linspace(0,3,20);
+    sol3 = ode45(F3,[0 3.2],[1 0]);
+    x = linspace(0,3.2,20);
     Y3(i, :) = deval(sol3,x,1);
     diff_Y3(i, :) = deval(sol3,x,2);
 
@@ -101,15 +104,25 @@ end
 figure(3)
 plot(x,diag(Y3));
 
+figure(4)
+% compare with exact solution
+f1 = @(t,y)[y(2); -0.001*y(2)-y(1)^2];
+exact_sol = ode45(f1,[0 3.2],[1 0]);
+x = linspace(0,3.2,20);
+exact_Y1 = deval(exact_sol,x,1);
+exact_Y2 = deval(exact_sol,x,2);
+plot(x, exact_Y1, '*r');
+hold on
+plot(x, exact_Y2, '*b');
 third_y = diag(Y3);
 third_diffy = diag(diff_Y3);
 
-epsilon = 0.001
+epsilon = 0.001;
 
 ret = first_y' + epsilon.*second_y + epsilon^2.*third_y;
-figure(4)
 plot(x, ret)
 
 diffret = first_diffy' + epsilon.*second_diffy + epsilon^2.*third_diffy;
-figure(5)
 plot(x, diffret)
+% Without using Method of multiple scales, RPS eventually blows up. 
+
