@@ -1,8 +1,8 @@
 clear; clc; close all;
 
 % Create Symbolic Variables
-time = 3.1;
-step = 50;
+time = 3.2;
+step = 100;
 epsilon = 0.01;
 syms E y0(t) y1(t) y2(t)
 % This is regular perturbation series of y
@@ -24,7 +24,6 @@ E2 = strcat(" """, "E^2", """");
 
 E_command = [E0, E1, E2];
 sym pert_term
-
 % This for loop using python to collect different perturbation term
 % according to the power of E. 
 for i=1:3
@@ -41,7 +40,7 @@ sol = ode45(F,[0 time],[1 0]);
 x = linspace(0,time,step);
 first_y = deval(sol,x,1);
 first_diffy = deval(sol,x,2);
-plot(x,first_y);
+% plot(x,first_y);
 
 
 % To solve second perturbation term, need to substitute results of first
@@ -69,8 +68,8 @@ for i = 1:size(second_per, 2)
     diff_Y2(i, :) = deval(sol2,x,2);
 
 end
-figure(2)
-plot(x,diag(Y2));
+% figure(2)
+% plot(x,diag(Y2));
 
 second_y = diag(Y2);
 second_diffy = diag(diff_Y2);
@@ -104,10 +103,10 @@ for i = 1:size(third_per, 2)
     diff_Y3(i, :) = deval(sol3,x,2);
 
 end
-figure(3)
-plot(x,diag(Y3));
+% figure(3)
+% plot(x,diag(Y3));
 
-figure(4)
+% figure(4)
 % compare with exact solution
 f1 = @(t,y)[y(2); -epsilon*y(2)-y(1)^2];
 exact_sol = ode45(f1,[0 time],[1 0]);
@@ -126,9 +125,12 @@ plot(x, ret)
 
 diffret = first_diffy' + epsilon.*second_diffy + epsilon^2.*third_diffy;
 plot(x, diffret)
-title('Solution of d^{2}y/dt^{2}+0.001*dy/dt + y=0')
+% title('Solution of d^{2}y/dt^{2}+0.001*dy/dt + y=0')
 xlabel('Time')
 ylabel('Displacement')
 legend('Exact Solution of y','Exact Solution of y''', 'RPS of y', 'RPS of y''')
+ylim([-2 2])
 % Without using Method of multiple scales, RPS eventually blows up. 
 
+figure(2)
+plot(exact_Y1, exact_Y2)
